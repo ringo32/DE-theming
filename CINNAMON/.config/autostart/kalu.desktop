@@ -1,0 +1,16 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=kalu
+Comment=Keep Arch Linux Up-to-date
+GenericName=Upgrade Notifier for Arch Linux
+Exec=kalu
+Icon=kalu
+Categories=Utility;
+Encoding=UTF-8
+X-GNOME-Autostart-enabled=true
+NoDisplay=false
+Hidden=false
+Name[de_DE]=kalu
+Comment[de_DE]=Keep Arch Linux Up-to-date
+X-GNOME-Autostart-Delay=4
