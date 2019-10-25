@@ -40,7 +40,6 @@ Main() {
     rm -rf $workdir
     wget https://raw.githubusercontent.com/endeavouros-team/liveuser-desktop-settings/master/dconf/mousepad.dconf
     dbus-launch dconf load / < mousepad.dconf
-    sudo -H -u liveuser bash -c 'dbus-launch dconf load / < mousepad.dconf'
     rm mousepad.dconf
 
     # echo "******* All Done --- restarting Desktop Manager *******"
