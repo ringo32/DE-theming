@@ -34,7 +34,7 @@ Main() {
     git clone $dotfiles >& /dev/null
     cd dotfiles
     sudo cp -R endeavouros /usr/share/
-    rm -R ~/.config/Thunar ~/.config/kalu ~/.config/qt5ct ~/.config/xfce4
+    rm -R ~/.config/Thunar ~/.config/qt5ct ~/.config/xfce4
     cp -R XFCE/. ~/
     dconf load / /dev/null
     rm -rf $workdir
