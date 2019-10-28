@@ -6,7 +6,6 @@ Main() {
     local packages=(
         arc-gtk-theme
         arc-x-icons-theme
-        kalu
         lightdm
         lightdm-gtk-greeter
         lightdm-gtk-greeter-settings
