@@ -66,7 +66,7 @@ Main() {
 
     pushd $workdir >/dev/null           # do everything here at temporary folder
 
-    echo "Fetching theming files."
+    echo "Fetching $DE theming files."
     wget -q --timeout=10 $greeter       || DIE "sorry, unable to fetch $greeterfile."
 
     git clone $dotfiles >& /dev/null    || DIE "sorry, unable to fetch theming dotfiles."
@@ -106,7 +106,7 @@ Main() {
 
     rm -rf $workdir
 
-    MSG "Reboot recommended" "All done -- please reboot and enjoy the default EndeavourOS $DE Theming!"
+    MSG "Reboot recommended" "All done -- please reboot and enjoy the default EndeavourOS $DE Theming!" &
 }
 
 Main "$@"
