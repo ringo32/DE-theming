@@ -80,8 +80,10 @@ Main() {
         test -n "$sudo_cmds" && sudo_cmds+=" ; "
         sudo_cmds+="cp $PWD/$greeterfile /etc/lightdm/"                     # put greeter in place
     }
-    test -n "$sudo_cmds" && sudo_cmds+=" ; "
-    sudo_cmds+="mkdir -p /usr/share/endeavouros"                            # make sure folder exists
+    if [ ! -d /usr/share/endeavouros ] ; then
+        test -n "$sudo_cmds" && sudo_cmds+=" ; "
+        sudo_cmds+="mkdir -p /usr/share/endeavouros"                        # make sure folder exists
+    fi
     for xx in $PWD/$dotfiles_dirname/endeavouros/* ; do
         diff $xx /usr/share/endeavouros >/dev/null || {
             test -n "$sudo_cmds" && sudo_cmds+=" ; "
