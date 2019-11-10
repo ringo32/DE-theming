@@ -57,6 +57,7 @@ Main() {
     )
     local sudo_cmds
     local workdir=$(mktemp -d)
+    local xx
 
     # Check which of the required packages is not installed.
     for xx in "${required_pkgs[@]}" ; do
@@ -79,10 +80,15 @@ Main() {
         test -n "$sudo_cmds" && sudo_cmds+=" ; "
         sudo_cmds+="cp $PWD/$greeterfile /etc/lightdm/"                     # put greeter in place
     }
-    diff -r $dotfiles_dirname/endeavouros /usr/share/endeavouros >/dev/null || {
-        test -n "$sudo_cmds" && sudo_cmds+=" ; "
-        sudo_cmds+="cp -R $PWD/$dotfiles_dirname/endeavouros /usr/share/"   # put pictures in place
-    }
+    test -n "$sudo_cmds" && sudo_cmds+=" ; "
+    sudo_cmds+="mkdir -p /usr/share/endeavouros"                            # make sure folder exists
+    for xx in $PWD/$dotfiles_dirname/endeavouros/* ; do
+        diff $xx /usr/share/endeavouros >/dev/null || {
+            test -n "$sudo_cmds" && sudo_cmds+=" ; "
+            sudo_cmds+="cp $xx /usr/share/endeavouros"                      # put pictures in place
+        }
+    done
+
     if [ -n "$sudo_cmds" ] ; then
         echo "Installing system files." >&2
         su -c "$sudo_cmds"
