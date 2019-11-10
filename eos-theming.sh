@@ -32,7 +32,7 @@ UserFiles_CINNAMON()
     rm -f ~/.config/dbus/user
     rm -rf ~/.cinnamon ~/.fontconfig ~/.icons ~/.local/share/cinnamon
     cp -R $dotfiles_dirname/CINNAMON/. ~/
-    dconf load / < cinnamon.dconf
+    dconf load / < $dotfiles_dirname/cinnamon.dconf
 }
 
 Main() {
