@@ -76,7 +76,7 @@ Main() {
     if [ -n "$packages" ] ; then
         sudo_cmds="pacman -S ${packages[*]} --noconfirm >& /dev/null"       # install required packages
     fi
-    diff $greeterfile /etc/lightdm/$greeterfile >/dev/null || {
+    diff $greeterfile /etc/lightdm/$greeterfile >& /dev/null || {
         test -n "$sudo_cmds" && sudo_cmds+=" ; "
         sudo_cmds+="cp $PWD/$greeterfile /etc/lightdm/"                     # put greeter in place
     }
@@ -85,7 +85,7 @@ Main() {
         sudo_cmds+="mkdir -p /usr/share/endeavouros"                        # make sure folder exists
     fi
     for xx in $PWD/$dotfiles_dirname/endeavouros/* ; do
-        diff $xx /usr/share/endeavouros >/dev/null || {
+        diff $xx /usr/share/endeavouros >& /dev/null || {
             test -n "$sudo_cmds" && sudo_cmds+=" ; "
             sudo_cmds+="cp $xx /usr/share/endeavouros"                      # put pictures in place
         }
