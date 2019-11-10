@@ -66,7 +66,7 @@ Main() {
 
     pushd $workdir >/dev/null           # do everything here at temporary folder
 
-    echo "Fetching theming files." >&2
+    echo "Fetching theming files."
     wget -q --timeout=10 $greeter       || DIE "sorry, unable to fetch $greeterfile."
 
     git clone $dotfiles >& /dev/null    || DIE "sorry, unable to fetch theming dotfiles."
@@ -92,11 +92,11 @@ Main() {
     done
 
     if [ -n "$sudo_cmds" ] ; then
-        echo "Installing system files." >&2
+        echo "Installing system files."
         su -c "$sudo_cmds"
     fi
 
-    echo "Installing $DE user files." >&2
+    echo "Installing $DE user files."
     case "$DE" in
         XFCE)     UserFiles_XFCE ;;
         CINNAMON) UserFiles_CINNAMON ;;
