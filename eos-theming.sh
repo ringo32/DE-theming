@@ -106,7 +106,7 @@ Main() {
 
     rm -rf $workdir
 
-    MSG "Reboot recommended" "All done -- please reboot and enjoy the default EndeavourOS $DE Theming!" &
+    echo "All done -- please reboot and enjoy the default EndeavourOS $DE Theming!"
 }
 
 Main "$@"
