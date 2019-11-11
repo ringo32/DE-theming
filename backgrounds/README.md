@@ -1,1 +1,0 @@
-EndeavourOS default background files
