@@ -33,8 +33,8 @@ Main() {
     git clone $dotfiles >& /dev/null
     cd dotfiles
     sudo cp -R endeavouros /usr/share/
-    rm -R ~/.config/Thunar ~/.config/qt5ct ~/.config/xfce4
-    cp -R XFCE/. ~/
+    rm -Rf ~/.config/Thunar ~/.config/qt5ct ~/.config/xfce4
+    cp -Rf XFCE/. ~/
     dconf load / /dev/null
     rm -rf $workdir
     wget https://raw.githubusercontent.com/endeavouros-team/liveuser-desktop-settings/master/dconf/mousepad.dconf
