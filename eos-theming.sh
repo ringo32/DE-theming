@@ -21,6 +21,7 @@ UserFiles_XFCE()
 {
     local mousepaddconf=https://github.com/endeavouros-team/liveuser-desktop-settings/raw/master/dconf/mousepad.dconf
     wget -q --timeout=10 $mousepaddconf || DIE "sorry, unable to fetch mousepad.dconf."
+    rm -rf ~/.config/xfce4/panel
     rm -rf ~/.config/Thunar ~/.config/qt5ct ~/.config/xfce4
     cp -rf $dotfiles_dirname/XFCE/. ~/
     dconf load / < mousepad.dconf
