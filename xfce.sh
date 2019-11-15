@@ -34,6 +34,7 @@ Main() {
     cd dotfiles
     sudo cp -R endeavouros /usr/share/
     rm -Rf ~/.config/Thunar ~/.config/qt5ct ~/.config/xfce4
+    rm -rf ~/.config/xfce4/panel
     cp -Rf XFCE/. ~/
     dconf load / /dev/null
     rm -rf $workdir
